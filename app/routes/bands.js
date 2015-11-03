@@ -2,15 +2,10 @@ import Ember from 'ember';
 
 var Band = Ember.Object.extend({
   name: '',
-  language: '',
-
+  
   slug: function() {
     return this.get('name').dasherize();
   }.property('name'),
-
-  site: function() {
-    return 'http://bands.com/' + this.get('slug') + '.' + this.get('language');
-  }.property('site', 'language')
 });
 
 var Song = Ember.Object.extend({
@@ -19,11 +14,6 @@ var Song = Ember.Object.extend({
   band: ''
 });
 
-var BandsCollection = Ember.Object.extend({
-  content: [],
-  sortProperties: ['name:desc'],
-  sortedContent: Ember.computed.sort('content', 'sortProperties'),
-});
 
 var blackDog = Song.create({
   title: 'Black Dog',
@@ -49,13 +39,18 @@ var pretender = Song.create({
   rating: 2
 });
 
-var ledZeppelin = Band.create({ name: 'Led Zeppelin' });
-var pearlJam = Band.create({ name: 'Pear Jam' });
-var fooFighters = Band.create({ name: 'Foo Fighters' });
+var BandsCollection = Ember.Object.extend({
+  content: [],
+  sortProperties: ['name:desc'],
+  sortedContent: Ember.computed.sort('content', 'sortProperties'),
+});
+
+var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
+var pearlJam = Band.create({ name: 'Pearl Jam', songs: [daughter, yellowLedbetter] });
+var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
 
 var bands = BandsCollection.create();
 bands.get('content').pushObjects([ledZeppelin, pearlJam, fooFighters]);
-
 
 export default Ember.Route.extend({
   model: function() {
