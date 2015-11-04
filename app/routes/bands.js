@@ -3,20 +3,6 @@ import Ember from 'ember';
 import Band from '../models/band';
 import Song from '../models/song';
 
-// // var Band = Ember.Object.extend({
-// //   name: '',
-//
-//   slug: function() {
-//     return this.get('name').dasherize();
-//   }.property('name'),
-// });
-
-// var Song = Ember.Object.extend({
-//   title: '',
-//   rating: 0,
-//   band: ''
-// });
-
 
 var blackDog = Song.create({
   title: 'Black Dog',
