@@ -12,7 +12,7 @@ export default Ember.Route.extend({
       var band = this.modelFor('bands.band');
       document.title = `${band.get('name')} songs - Rock & Roll`;
     },
-    
+
     createSong: function() {
       var controller = this.get('controller');
       var band = this.modelFor('bands.band');
