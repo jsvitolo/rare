@@ -1,15 +1,7 @@
-<div class="col-md-4">
-  <div class="list-group">
-    {{#each model.sortedContent as |band|}}
-      {{#link-to "bands.band.songs" band class="list-group-item band-link"}}
-        {{band.name}}
-        <span class="pointer glyphicon glyphicon-chevron-right"></span>
-      {{/link-to}}
-    {{/each}}
-  </div>
-</div>
-<div class="col-md-8">
-  <div class="list-group">
-    {{outlet}}
-  </div>
+<ul class="nav nav-tabs">
+  <li>{{link-to "Details" "bands.band.details" model}}</li>
+  <li>{{link-to "Songs" "bands.band.songs"}}</li>
+</ul>
+<div class="band-info">
+  {{outlet}}
 </div>

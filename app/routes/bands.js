@@ -52,11 +52,22 @@ export default Ember.Route.extend({
     return bands;
   },
 
+  afterModel: function(model) {
+    var bands = model;
+    if (bands.length === 1) {
+      this.transitionTo('bands.band', bands.get('firstObject'));
+    }
+  },
+
   actions: {
+    didTransition: function() {
+      document.title = 'Bands - Rock & Roll';
+    },
+
     createBand: function() {
       var name = this.get('controller').get('name');
       var band = Band.create({name: name});
-      bands.get('content').pushObject(band);
+       bands.get('content').pushObject(band);
       this.get('controller').set('name', '');
       this.transitionTo('bands.band.songs', band);
     }
