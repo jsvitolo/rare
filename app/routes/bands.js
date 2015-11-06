@@ -10,6 +10,21 @@ var blackDog = Song.create({
   rating: 3
 });
 
+<<<<<<< HEAD
+=======
+var yellowLedbetter = Song.create({
+  title: 'Yellow Ledbetter',
+  band: 'Pearl Jam',
+  rating: 4
+});
+
+var daughter = Song.create({
+  title: 'Daughter',
+  band: 'Pearl Jam',
+  rating: 5
+});
+
+>>>>>>> 6111621a1f90e70ca25ebcc4885ab46c8def1371
 var pretender = Song.create({
   title: 'The Pretender',
   band: 'Foo Fighters',
@@ -27,6 +42,10 @@ var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
 var pearlJam = Band.create({
   name: 'Pearl Jam',
   description: 'Pearl Jam is an American rock band, formed in Seatle, Washigton in 1990',
+<<<<<<< HEAD
+=======
+  songs: [daughter, yellowLedbetter]
+>>>>>>> 6111621a1f90e70ca25ebcc4885ab46c8def1371
 });
 
 var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
